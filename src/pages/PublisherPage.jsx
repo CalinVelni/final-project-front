@@ -1,5 +1,5 @@
 export default function () {
     return(<>
-        <h1>Pblisher Page</h1>
+        <h1>Publisher Page</h1>
     </>)
 }
