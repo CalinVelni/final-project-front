@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
     const signUp = async (props) => {
         if(loading) return;
 
-        const { email, password, password2 } = props
+        const { email, password, password2, type } = props
 
         setError(null);
         setLoading(true);
@@ -35,7 +35,8 @@ export const UserProvider = ({ children }) => {
         try {
             const { data } = await axios.post(`${VITE_API_URL}/auth/signup`, {
                 email,
-                password
+                password,
+                type
             });
             changeData(data);
         } catch(error) {

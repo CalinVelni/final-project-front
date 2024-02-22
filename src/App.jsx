@@ -1,7 +1,7 @@
 import './App.scss'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
-import logo from './assets/react.svg'
+import logo from './assets/logo.svg'
 import GamePage from './pages/GamePage'
 import Games from './pages/Games'
 import HomePage from './pages/HomePage'
@@ -19,9 +19,12 @@ function App() {
       <nav className='main-navbar'>
           <div className='nav-logo'>
             <NavLink className={'navlink logo-link'} to={'/'} element={<HomePage/>}>
-              <figure className='logo-wrapper'>
-                <img src={logo} alt="IndieGames"/>
-              </figure>
+              <div className='logo-user-wrapper'>
+                <figure className='logo-wrapper'>
+                  <img src={logo} alt="IndieGames"/>
+                </figure>
+                <p className='user'>{user?.email}</p>
+              </div>
             </NavLink>
           </div>
           {user &&

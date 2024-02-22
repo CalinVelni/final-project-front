@@ -6,7 +6,7 @@ const { VITE_API_URL } = import.meta.env
 
 export default function () {
 
-    const { token } = useUser();
+    const { user, token } = useUser();
 
     const [publishers, setPublishers] = useState();
     const [error, setError] = useState();
@@ -47,40 +47,43 @@ export default function () {
                 )
             })
         }
-        <div>
-            <h3>Add Publisher</h3>
 
+        {user?.type === 'developer' &&
             <div>
-                <label> <b>Name:</b>
-                    <input
-                        type="text"
-                        value={formData.name}
-                        onChange={e => setFormData({
-                            ...formData,
-                            name: e.target.value
-                        })}
-                    />
-                </label>
+                <h3>Add Publisher</h3>
 
-                <label> <b>Country:</b>
-                    <input
-                        type="text"
-                        value={formData.country}
-                        onChange={e => setFormData({
-                            ...formData,
-                            country: e.target.value
-                        })}
-                    />
-                </label>
-                <button
-                    onClick={() => {
-                        addPublisher(formData);
-                        setFormData(blankFormData)
-                    }}
-                >Add</button>
+                <div>
+                    <label> <b>Name:</b>
+                        <input
+                            type="text"
+                            value={formData.name}
+                            onChange={e => setFormData({
+                                ...formData,
+                                name: e.target.value
+                            })}
+                        />
+                    </label>
+
+                    <label> <b>Country:</b>
+                        <input
+                            type="text"
+                            value={formData.country}
+                            onChange={e => setFormData({
+                                ...formData,
+                                country: e.target.value
+                            })}
+                        />
+                    </label>
+                    <button
+                        onClick={() => {
+                            addPublisher(formData);
+                            setFormData(blankFormData)
+                        }}
+                    >Add</button>
+                </div>
+
+                <p>{feedback}</p>
             </div>
-
-            <p>{feedback}</p>
-        </div>
+        }
     </>)
 }

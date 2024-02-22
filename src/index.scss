@@ -1,5 +1,6 @@
 :root {
-    --cstm-blue: rgba(64, 78, 237);
+    --cstm-blue: rgba(64, 78, 237, 0.713);
+    --cstm-purple: rgb(157, 0, 255);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: rgba(0, 0, 0, 0.85);
     color: whitesmoke;
@@ -25,16 +26,28 @@ li {
     list-style-type: none;
 }
 
-input {
+input, select {
     font: inherit;
     padding: .1rem .3rem;
     border-style: none;
     border-radius: .2rem;
     &:focus {
-        border-style: none;
-        outline: solid .15rem var(--cstm-blue);
+        outline: solid .15rem var(--cstm-purple);
     }
 }
+
+button {
+    font: inherit;
+    padding: .2rem 1rem;
+    background-color: inherit;
+    color: whitesmoke;
+    border: .15rem solid var(--cstm-purple);
+    border-radius: .2rem;
+    &:hover {
+        background-color: var(--cstm-purple);
+    }
+}
+
 
 .center {
     text-align: center;

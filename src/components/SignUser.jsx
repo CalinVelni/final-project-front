@@ -8,26 +8,29 @@ export default function ({ type }) {
 
     const title = type === 'login' ? 'Log In' : 'Sign Up';
 
-    const [pswMatchError, setPswMatchError] = useState(null)
+    const [message, setMessage] = useState(null);
     const [formData, setFormData] = useState({
         email: 'user@developer.com',
         password: 'Pass123!',
-        password2: ''
+        password2: '',
+        type: 'tester'
     });
 
     const signUser = (e) => {
         e.preventDefault()
-        setPswMatchError(null);
+        setMessage(null);
         const { email, password, password2 } = formData;
         if (type === 'login') {
-            logIn(formData)
+            logIn(formData);
+            setMessage('Logged In Successfully.')
         }
         else {
             if(password !== password2) {
-                setPswMatchError("Passwords don't match.");
+                setMessage("Passwords don't match.");
                 return
             }
-            signUp(email, password)
+            signUp(formData);
+            setMessage('Signed Un Successfully.')
         }
     };
 
@@ -67,21 +70,39 @@ export default function ({ type }) {
                     />
                 </section>
 
-                { type === 'signup' && 
-                    <section className="form-field">
-                        <p className="main-color">Confirm Password</p>
-                        <input 
-                            type="password"
-                            required
-                            value={formData.password2}
-                            onChange={ e => {
-                                setFormData({
-                                    ...formData,
-                                    password2: e.target.value
-                                })
-                            }}
-                        />
-                    </section>
+                { type === 'signup' &&
+                    <>
+                        <section className="form-field">
+                            <p className="main-color">Confirm Password</p>
+                            <input 
+                                type="password"
+                                required
+                                value={formData.password2}
+                                onChange={ e => {
+                                    setFormData({
+                                        ...formData,
+                                        password2: e.target.value
+                                    })
+                                }}
+                            />
+                        </section>
+
+                        <section className="form-field">
+                            <p className="main-color">User Type</p>
+                            <select
+                                value={formData.type}
+                                onChange={ e => {
+                                    setFormData({
+                                        ...formData,
+                                        type: e.target.value
+                                    })
+                                }}
+                            >
+                                <option value="tester">Tester</option>
+                                <option value="developer">Developer</option>
+                            </select> 
+                        </section>
+                    </> 
                 }
 
                 <section className="form-field">
@@ -95,7 +116,8 @@ export default function ({ type }) {
 
                 {loading && <div className="message center">Loading...</div> }
                 {error && <div className="message center">{error}</div> }
-                {pswMatchError && <div className="message center">{pswMatchError}</div>}
+                {!loading && !error && message && <div className="message center">{message}</div>}
+
             </form>
 
         </div>

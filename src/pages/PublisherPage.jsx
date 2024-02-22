@@ -7,7 +7,7 @@ const { VITE_API_URL } = import.meta.env
 
 export default function () {
 
-    const { token } = useUser();
+    const { user, token } = useUser();
     const { slug } = useParams()
 
     const [publisher, setPublisher] = useState();
