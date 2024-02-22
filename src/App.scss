@@ -1,5 +1,5 @@
 .main-navbar {
-    background-color: rgba(64, 78, 237, 0.5);
+    background-color: var(--cstm-blue);
     padding: .5rem;
     display: flex;
     justify-content: space-between;
@@ -11,5 +11,29 @@
         gap: 1.5rem;
         margin-right: 1rem;
 
+    }
+}
+
+.page {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.main-color {
+    color: var(--cstm-blue);
+}
+
+.sign-user {
+    form {
+        display: grid;
+        gap: 1rem;
+        .form-field {
+            display: grid;
+            justify-content: center;
+            input {
+                width: 35vw;
+            }
+        }
     }
 }

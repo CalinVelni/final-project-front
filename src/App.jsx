@@ -12,7 +12,7 @@ import SignUser from './components/SignUser'
 
 function App() {
 
-  const { user } = useUser();
+  const { user, logOut } = useUser();
   
   return (
     <div className='app-wrapper'>
@@ -31,6 +31,11 @@ function App() {
               </li>
               <li>
                 <NavLink className={'navlink'} to={'/games'} element={<Games/>}>Games</NavLink>
+              </li>
+              <li>
+              <NavLink 
+                onClick={e => logOut()}
+                className={'navlink'} to={'/'} element={<HomePage/>}>Log Out</NavLink>
               </li>
             </menu>
           }

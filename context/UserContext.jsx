@@ -40,7 +40,7 @@ export const UserProvider = ({ children }) => {
             changeData(data);
         } catch(error) {
             console.error(error);
-            setError(error.message)
+            setError(error.response.data)
         } finally {
             setLoading(false)
         }
@@ -62,16 +62,22 @@ export const UserProvider = ({ children }) => {
             changeData(data);
         } catch(error) {
             console.error(error);
-            setError(error.message)
+            setError(error.response.data)
         } finally {
             setLoading(false)
         }
+    };
+
+    const logOut = () => {
+        localStorage.removeItem('data');
+        setData(null);
     };
 
     const contextValues = {
         ...data,
         logIn,
         signUp,
+        logOut,
         error,
         loading
     };
