@@ -1,0 +1,36 @@
+// TABLET
+@media screen and (max-width: 699px) {
+    .user {
+        display: none;
+    }
+
+    .collection-wrapper {
+        display: flex;
+        flex-direction: column-reverse ;
+        
+    }
+    .resource-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+// MOBILE
+@media screen and (max-width: 499px) {
+    :root{
+        font-size: 12px;
+    }
+    .logo-wrapper {
+        img {
+            height: 50px;
+        }
+    }
+    .game-cover {
+        img {
+            width: 300px;
+        }
+    }
+
+}
+
