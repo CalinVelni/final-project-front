@@ -1,5 +1,5 @@
 export default function () {
     return(<>
-        <h1>Page Not Found</h1>
+        <h1 className="center">Page Not Found</h1>
     </>)
 }

@@ -85,8 +85,6 @@ export default function () {
         }
     };
 
-    console.log(game);
-
     return(<>
         <div className="page resource-page">
             {error && !game &&
@@ -116,6 +114,7 @@ export default function () {
                         <p className="center"><span className="main-color">Description: </span>{` ${game.description}`}</p>
                     </section>
 
+                    {user.type === 'developer' &&
                     <section className="edit-resource">
                         
                         <h3 className="center sec-color">Edit Game</h3>
@@ -221,6 +220,7 @@ export default function () {
                         </div>
 
                     </section>
+                    }
 
                 </div>
             </>}

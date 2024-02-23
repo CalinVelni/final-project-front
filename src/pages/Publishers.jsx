@@ -93,15 +93,18 @@ export default function () {
                                         >
                                         {`${pub.name} `}<span className="main-color">|</span>{` ${pub.country}`}
                                     </Link>
+                                    {user.type === 'developer' &&
                                     <button
                                         onClick={() => deletePublisher(pub.slug)}
                                     >Delete</button>
+                                    }
                                 </li>
                             )
                         })}
                     </ul>
 
                     
+                    {user.type === 'developer' &&
                     <section className="add-resource">
                         <h3 className="center sec-color">Add new publisher</h3>
                         <div className="form">
@@ -139,6 +142,7 @@ export default function () {
                             </section>
                         </div>
                     </section>
+                    }
                 </div>
             
                 

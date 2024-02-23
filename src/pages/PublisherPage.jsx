@@ -99,6 +99,7 @@ export default function () {
                         </div>
                     </section>
 
+                    {user.type === 'developer' &&
                     <section className="edit-resource">
                         
                         <h3 className="center sec-color">Edit Publisher</h3>
@@ -139,6 +140,7 @@ export default function () {
                         </div>
 
                     </section>
+                    }
 
                 </div>
             </>}

@@ -41,7 +41,7 @@
     color: rgb(219, 33, 0);
 }
 
-.collection-list {
+.collection-list, .resource-props {
     li {
         display: flex;
         align-items: center;
@@ -63,11 +63,7 @@
 
 .resource-props {
     display: grid;
-    
 }
-
-
-
 
 .collection-wrapper, .resource-wrapper {
     display: flex;
@@ -95,3 +91,4 @@
         width: 400px;
     }
 }
+

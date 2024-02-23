@@ -121,14 +121,17 @@ export default function () {
                                     >
                                     {`${g.title} `}<span className="main-color">|</span>{` ${g.publisher.name}`}
                                 </Link>
+                                {user.type === 'developer' &&
                                 <button
                                     onClick={() => deleteGame(g.slug)}
                                 >Delete</button>
+                                }
                             </li>
                         )
                     })}
                 </ul>
 
+                {user.type === 'developer' &&
                 <section className="add-resource">
                         <h3 className="center sec-color">Add new Game</h3>
 
@@ -232,7 +235,8 @@ export default function () {
                             </section>
 
                         </div>
-                    </section>   
+                </section>   
+                }
                 
                 </div>
 
