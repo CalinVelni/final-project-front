@@ -15,7 +15,9 @@ export default function () {
     const [game, setGame] = useState();
     const [genres, setGenres] = useState();
     const [publishers, setPublishers] = useState();
-
+    
+    
+    const [refresh, setRefresh] = useState(false); // State for the useEffect [], needed in case of patching publisher for updating the link at the right slug
     const [error, setError] = useState();
     const blankFormData = {
         title: '',
@@ -37,7 +39,7 @@ export default function () {
                 setError('Error: Server connection failed.');
                 console.error(e)
             })
-    }, [slug]);
+    }, [slug, refresh]);
 
     useEffect(() => {
         axios.get(`${VITE_API_URL}/genres`, axiosHeaders(token))
@@ -108,7 +110,15 @@ export default function () {
                         <figure className="game-cover center">
                             <img src={game.cover} alt={`${game.title} - Cover`} />
                         </figure>
-                        <p className="center"><span className="main-color">Publisher: </span>{` ${game.publisher.name}`}</p>
+                        <p className="center">
+                            <span className="main-color">Publisher: </span>
+                            <Link
+                                to={`/publishers/${game.publisher?.slug}`}
+                                className={'link'}
+                                >
+                                {` ${game.publisher.name}`}
+                            </Link>
+                        </p>
                         <p className="center"><span className="main-color">Genre: </span>{` ${game.genre.name}`}</p>
                         <p className="center"><span className="main-color">Released: </span>{` ${dayjs(game.createdAt).format('DD-MM-YYYY')}`}</p>
                         <p className="center"><span className="main-color">Description: </span>{` ${game.description}`}</p>
@@ -212,7 +222,8 @@ export default function () {
                                 <button
                                     onClick={() => {
                                         editGame(formData);
-                                        setFormData(blankFormData)
+                                        setFormData(blankFormData);
+                                        setRefresh(!refresh)
                                     }}
                                 >Edit</button>
                             </section>
