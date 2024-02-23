@@ -89,6 +89,13 @@ footer {
     font-size: 1.2rem;
 }
 
+.navlink {
+    &.active {
+        color: var(--cstm-purple);
+        pointer-events: none;
+    }
+}
+
 
 // COLORS - IMAGES - TEXT
 .game-cover {

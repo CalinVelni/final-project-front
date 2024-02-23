@@ -40,7 +40,7 @@ function App() {
               <li>
               <NavLink 
                 onClick={e => logOut()}
-                className={'navlink'} to={'/'} element={<HomePage/>}>Log Out</NavLink>
+                className={'navlink'} to={'/login'} element={<HomePage/>}>Log Out</NavLink>
               </li>
             </menu>
           }
