@@ -1,3 +1,4 @@
+// COMPONENTS
 .main-navbar {
     background-color: var(--cstm-blue);
     padding: .5rem;
@@ -27,18 +28,6 @@
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
-}
-
-.main-color {
-    color: var(--cstm-purple);
-}
-
-.sec-color {
-    color: var(--cstm-blue);
-}
-
-.error {
-    color: rgb(219, 33, 0);
 }
 
 .collection-list, .resource-props {
@@ -86,9 +75,37 @@
     }
 }
 
+footer {
+    padding-top: 1rem;
+}
+
+.link {
+    &:hover {
+        color: var(--cstm-blue);
+    }
+}
+
+
+// COLORS - IMAGES - TEXT
 .game-cover {
     img {
         width: 400px;
     }
+}
+
+.center {
+    text-align: center;
+}
+
+.main-color {
+    color: var(--cstm-purple);
+}
+
+.sec-color {
+    color: var(--cstm-blue);
+}
+
+.error {
+    color: rgb(219, 33, 0);
 }
 
