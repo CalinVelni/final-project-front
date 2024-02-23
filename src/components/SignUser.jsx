@@ -9,8 +9,8 @@ export default function ({ type }) {
 
     const [message, setMessage] = useState(null);
     const [formData, setFormData] = useState({
-        email: 'user@developer.com',
-        password: 'Pass123!',
+        email: '',
+        password: '',
         password2: '',
         type: 'tester'
     });
