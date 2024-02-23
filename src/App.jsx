@@ -1,4 +1,5 @@
 import './App.scss'
+import './MediaQuery.scss'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
 import logo from './assets/logo.svg'
@@ -70,6 +71,9 @@ function App() {
         <Route path={'*'} element={<NotFound/>}/>
       </Routes>
       
+        <footer>
+            <p className='sec-color center'>Copyright © 2024 Calin - All Rights Reserved</p>
+        </footer>
     </div>
   )
 }
