@@ -44,7 +44,7 @@ export default function () {
                 tempFeedback('Publisher added successfully.')
             })
             .catch(e => {
-                setFbError('Add new publisher failed: Insert valid data.');
+                setFbError('Add new Publisher failed: Insert valid data.');
                 console.error(e)
             })
     };

@@ -1,3 +1,4 @@
+// GENERIC STYLE
 :root {
     --cstm-blue: rgba(64, 78, 237, 0.713);
     --cstm-purple: rgb(157, 0, 255);
@@ -26,7 +27,7 @@ li {
     list-style-type: none;
 }
 
-input, select {
+input, select, textarea {
     font: inherit;
     padding: .1rem .3rem;
     border-style: none;
@@ -42,12 +43,12 @@ button {
     background-color: inherit;
     color: whitesmoke;
     border: .15rem solid var(--cstm-purple);
-    border-radius: .2rem;
+    border-radius: .5rem;
     &:hover {
         background-color: var(--cstm-purple);
+        cursor: pointer;
     }
 }
-
 
 .center {
     text-align: center;

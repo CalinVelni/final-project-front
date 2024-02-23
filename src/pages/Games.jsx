@@ -20,7 +20,7 @@ export default function () {
         publisher: '',
         genre: '',
         cover: '',
-        decription: '',
+        description: '',
     };
     const [formData, setFormData] = useState(blankFormData);
     const [feedback, setFeedback] = useState(null);
@@ -62,6 +62,9 @@ export default function () {
     };
 
     const addGame = (body) => {
+        if(body.cover.trim().length < 1){delete body.cover} // The Game Schema gives a default value for cover and description, so I'm removing empty strings from the body to allow it
+        if(body.description.trim().length < 1){delete body.description}
+
         axios.post(`${VITE_API_URL}/games`, body, axiosHeaders(token))
             .then((obj) => {
                 setFbError(null);
@@ -78,7 +81,7 @@ export default function () {
         axios.delete(`${VITE_API_URL}/games/${slug}`, axiosHeaders(token))
             .then(obj => {
                 setFbError(null);
-                setPublishers(obj.data);
+                setGames(obj.data);
                 tempFeedback('Game deleted successfully.')
             })
             .catch(e => {
@@ -86,11 +89,6 @@ export default function () {
                 console.error(e)
             })
     };
-
-    // console.log(games);
-    console.log(genres);
-    // console.log(publishers);
-
 
     return(
         <div className="page collection-page">
@@ -215,10 +213,10 @@ export default function () {
                                 <textarea
                                     placeholder="Write a game description."
                                     maxLength={9999} 
-                                    value={formData.decription}
+                                    value={formData.description}
                                     onChange={e => setFormData({
                                         ...formData,
-                                        decription: e.target.value
+                                        description: e.target.value
                                     })}
                                 />
                             </section>

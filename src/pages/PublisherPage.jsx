@@ -1,4 +1,5 @@
 import axios from "axios"
+import NotFound from '../pages/NotFound'
 import { axiosHeaders } from "../../library/utilities"
 import { useUser } from "../../context/UserContext"
 import { useEffect, useState } from "react"
@@ -53,7 +54,7 @@ export default function () {
                     setPublisher(obj.data)
                 })
                 .catch(e => {
-                    setFbError(e.response.data);
+                    setFbError('Edit Publisher failed: Insert valid data.');
                     console.error(e)
                 })
         }
@@ -62,7 +63,7 @@ export default function () {
     return(
         <div className="page resource-page">
             {error &&
-                <p className="error center">{error}</p>
+                <NotFound/>
             }
 
             {!error && !publisher &&

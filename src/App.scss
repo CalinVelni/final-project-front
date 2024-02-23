@@ -10,10 +10,8 @@
         justify-content: space-between;
         gap: 1.5rem;
         margin-right: 1rem;
-
     }
 }
-
 
 .logo-user-wrapper {
     display: flex;
@@ -26,6 +24,7 @@
 
 .page {
     display: grid;
+    justify-content: center;
     gap: 1rem;
     padding: 1rem;
 }
@@ -34,16 +33,65 @@
     color: var(--cstm-purple);
 }
 
-.sign-user {
-    form {
-        display: grid;
+.sec-color {
+    color: var(--cstm-blue);
+}
+
+.error {
+    color: rgb(219, 33, 0);
+}
+
+.collection-list {
+    li {
+        display: flex;
+        align-items: center;
         gap: 1rem;
-        .form-field {
-            display: grid;
-            justify-content: center;
-            input, select {
-                width: 35vw;
+        border: .1rem solid var(--cstm-blue);
+        border-radius: .5rem;
+        padding: .5rem;
+        margin: .3rem;
+        .link {
+            &:hover {
+                color: var(--cstm-blue);
             }
         }
+        button {
+            margin-left: auto;
+        }
+    }
+}
+
+.resource-props {
+    display: grid;
+    
+}
+
+
+
+
+.collection-wrapper, .resource-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+    .form-field {
+        display: grid;
+        justify-content: center;
+    }
+}
+
+.sign {
+    input, select {
+        width: 35vw;
+    }
+}
+
+.game-cover {
+    img {
+        width: 400px;
     }
 }
