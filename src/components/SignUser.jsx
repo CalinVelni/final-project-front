@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useUser } from "../../context/UserContext"
 
@@ -39,7 +38,7 @@ export default function ({ type }) {
             
             <h1 className="center main-color">{title}</h1>
 
-            <form onSubmit={signUser}>
+            <form onSubmit={signUser} className="form sign">
                 <section className="form-field">
                     <p className="main-color">Email</p>
                     <input 
