@@ -44,7 +44,7 @@ export default function () {
                 tempFeedback('Publisher added successfully.')
             })
             .catch(e => {
-                setFbError(e.response.data);
+                setFbError('Add new publisher failed: Insert valid data.');
                 console.error(e)
             })
     };
@@ -72,11 +72,7 @@ export default function () {
                 <p className="message center">Loading...</p>
             }
 
-            {!error && publishers?.length < 1 &&
-                <p className="message center">No publishers were found.</p>
-            }
-
-            {publishers?.length > 0 && <>
+            {publishers && <>
                 <h1 className="main-color center">Publishers List</h1>
 
                 <section className="center">
@@ -84,6 +80,8 @@ export default function () {
                 </section>
 
                 <div className="collection-wrapper">
+
+                    {publishers?.length < 1 && <p className="sec-color center">No publishers available, add one.</p>}
 
                     <ul className="collection-list center">
                         {publishers.map(pub => {

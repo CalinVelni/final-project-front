@@ -16,6 +16,7 @@ function App() {
   
   return (
     <div className='app-wrapper'>
+
       <nav className='main-navbar'>
           <div className='nav-logo'>
             <NavLink className={'navlink logo-link'} to={'/'} element={<HomePage/>}>
@@ -68,6 +69,7 @@ function App() {
         </Route>
         <Route path={'*'} element={<NotFound/>}/>
       </Routes>
+      
     </div>
   )
 }
